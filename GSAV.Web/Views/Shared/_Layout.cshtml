@@ -1,0 +1,153 @@
+﻿
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+    <title>Welcome, to &ndash; Blackboard Learn</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta id="request-method" name="request-method" content="GET">
+    <meta name="author" content="Blackboard">
+    <meta name="copyright" content="&copy; 1997-2018 Blackboard Inc. All Rights Reserved. U.S. Patent No. 7,493,396 and 7,558,853. Additional Patents Pending.">
+    <meta name="keywords" content="Blackboard">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="~/Content/upc/ui/bb-icon2.ico">
+    <link rel="stylesheet" type="text/css" href="~/Content/upc/common/shared.css?v=3200.0.5-rel.6+3dd6b57" id="css_0">
+    <link rel="stylesheet" type="text/css" href="~/Content/upc/branding/themes/UPC2018/theme.css?v=3200.0.5-rel.6+3dd6b56" id="css_1">
+    <link rel="stylesheet" type="text/css" href="~/Content/upc/branding/themes/UPC2018/app_nav.css?v=3200.0.5-rel.6+3dd6b57" id="css_2">
+    <link rel="stylesheet" type="text/css" href="~/Content/upc/branding/_1_1/brand.css?ts=1514300964000&v=3200.0.5-rel.6+3dd6b56" id="css_3">
+
+    <link rel="stylesheet" href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css"/>
+
+    <style type="text/css">
+        .topGlobalLinks a.home {
+            background-image: url(/images/console/icons/home_0.gif)
+        }
+
+        .bottom-buttons-home a {
+            background-image: url(/images/console/icons/home_0.gif);
+            background-repeat: no-repeat;
+            background-position: 50% 0
+        }
+
+        .topGlobalLinks a.help {
+            background-image: url(/images/console/icons/help_0.gif)
+        }
+
+        .bottom-buttons-help a {
+            background-image: url(/images/console/icons/help_0.gif);
+            background-repeat: no-repeat;
+            background-position: 50% 0
+        }
+
+        .topGlobalLinks a.logout {
+            background-image: url(/images/console/icons/logout_0.gif)
+        }
+
+        .global-nav-bar .logout-link, .global-nav-bar .logout-link:hover, .global-nav-bar .logout-link:focus {
+            background-image: url(/images/console/icons/logout_0.gif);
+            background-repeat: no-repeat;
+            background-position: 50% 0
+        }
+
+        #BotChatGoesHere {
+            border: 1px solid #333;
+            float: right;
+            height: 500px;
+            position: relative;
+            width: 400px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1 class="hideoff hideFromQuickLinks"></h1>
+    <div class=global-nav-bar-wrap>
+        @Html.Partial("_LoginPartial")
+        
+    </div>
+    <!-- global_nav.jsp -->
+
+    <div id="globalNavPageNavArea">
+        <table class="bouncer" summary="Top frame table" role="presentation">
+            <tr>
+                <td>
+                    <div class="topTabs bgBanner" id="topTabs">
+
+                        <div class="brandingImgWrap">
+                            <a href="http://aulavirtual.upc.edu.pe/" target="_blank" title="UPC Blackboard">
+                                <img src="~/Content/upc/branding/_1_1/logo-90x90.png" alt="UPC Blackboard" title="UPC Blackboard" class="bannerImage" />
+                            </a>
+                        </div>
+
+                        <div class="tabWrapper-left">
+                            <H2 CLASS="hideoff">Top Frame Tabs</H2>
+                            <table class="appTabs transparent" id="appTabList" summary="Tab List table" role="presentation">
+                                <tr>
+                                    <td id="MyInstitution.label" class="active">
+                                        <a href="#" TARGET="_top">
+                                            <span>My Institution</span>
+                                            <span class="hideoff"> Tab 1 of 4&nbsp;(active tab)</span>
+                                        </a>
+                                    </td>
+                                    <td id="Courses.label">
+                                        <a href="#" TARGET="_top">
+                                            <span>Courses</span>
+                                            <span class="hideoff"> Tab 2 of 4</span>
+                                        </a>
+                                    </td>
+                                    <td id="Community.label">
+                                        <a href="#" TARGET="_top">
+                                            <span>Community</span>
+                                            <span class="hideoff"> Tab 3 of 4</span>
+                                        </a>
+                                    </td>
+                                    <td id="bbcms.label">
+                                        <a href="#" TARGET="_top">
+                                            <span>Content Collection</span>
+                                            <span class="hideoff"> Tab 4 of 4</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="clearfloats"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="globalNavPageContentArea">
+        <div class="locationPane">
+            <div class="contentPaneWide clearfix tabbedPane portal">
+                <div id="content" class="contentBox clearfix">
+                    <div class="container clearfix">
+                        @RenderBody()
+                        @*<div class="contentBox contentBox-edit">
+                <div class="content clearfix">
+                    <h1 class="hideoff" tabindex="-1">Welcome, Lisseth Elvira</h1>
+
+                    <div class="containerPortal clearfix">
+
+
+                    </div>
+                </div>
+            </div>*@
+
+                    </div>
+                    @*<div id="BotChatGoesHere" />*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
