@@ -11,7 +11,7 @@
     <script>
         var params = BotChat.queryParams(location.search);
         var user = {
-            id: 1,  //params['userid'] || 'userid',
+            id: "1",  //params['userid'] || 'userid',
             name: ' @User.Identity.GetUserName() ' //'Rodrigo Matteo' //params['username'] || 'username'
         };
         var bot = {
@@ -31,16 +31,13 @@
 
         BotChat.App({
             bot: bot,
-            locale: params['locale'],
             resize: 'detect',
-            // sendTyping: true,    // defaults to false. set to true to send 'typing' activities to bot (and other users) when user is typing
+            sendTyping: true,    // defaults to false. set to true to send 'typing' activities to bot (and other users) when user is typing
             user: user,
-            // locale: 'es-es', // override locale to Spanish
+            locale: 'es-es', // override locale to Spanish
             directLine: {
-                domain: params['domain'],
                 secret: "mOeE5Yxu2vU.cwA.x7w.CdcXM3Su8-8mPFPrFlhbtdg9uyFrlhsrLYN_btw10tM", //params['s'],
-                token: params['t'],
-                webSocket: params['webSocket'] && params['webSocket'] === 'true' // defaults to true
+                webSocket: false
             }
         }, document.getElementById('BotChatGoesHere'));
     </script>
