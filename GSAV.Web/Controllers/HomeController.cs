@@ -11,7 +11,7 @@ namespace GSAV.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(TempData["id"]);
         }
 
     }

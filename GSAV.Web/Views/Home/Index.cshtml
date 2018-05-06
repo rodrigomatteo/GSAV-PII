@@ -5,40 +5,48 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div id="BotChatGoesHere" />
+        <input style="min-width:50px; min-height:25px;" value="Consultar Upecito" type="button" id="btnUpecito" onclick="ShowChat(); ExecuteChat();" />
+        <label class="LabelCSSTop"></label>
+        <div id="BotChatGoesHere" style="display: none"/>
     </div>
+
     <script src="https://cdn.botframework.com/botframework-webchat/latest/botchat.js"></script>
     <script>
-        var params = BotChat.queryParams(location.search);
-        var user = {
-            id: "1",  //params['userid'] || 'userid',
-            name: ' @User.Identity.GetUserName() ' //'Rodrigo Matteo' //params['username'] || 'username'
-        };
-        var bot = {
-            id: params['botid'] || 'botid',
-            name: params['botname'] || 'botname'
-        };
-        window['botchatDebug'] = params['debug'] && params['debug'] === 'true';
+        function ExecuteChat() {
+            var params = BotChat.queryParams(location.search);
+            var user = {
+                id: "@TempData["id"]", //"1",  //params['userid'] || 'userid',
+                name: ' @User.Identity.GetUserName() ' //'Rodrigo Matteo' //params['username'] || 'username'
+            };
+            var bot = {
+                id: params['botid'] || 'botid',
+                name: params['botname'] || 'botname'
+            };
+            window['botchatDebug'] = params['debug'] && params['debug'] === 'true';
 
-        /*
-        BotChat.App({
-            directLine: { secret: "mOeE5Yxu2vU.cwA.x7w.CdcXM3Su8-8mPFPrFlhbtdg9uyFrlhsrLYN_btw10tM" },
-            user: { id: 'userid' },
-            bot: { id: 'botid' },
-            resize: 'detect'
-        }, document.getElementById("BotChatGoesHere"));
-        */
+            BotChat.App({
+                bot: bot,
+                resize: 'detect',
+                sendTyping: true,    // defaults to false. set to true to send 'typing' activities to bot (and other users) when user is typing
+                user: user,
+                locale: 'es-es', // override locale to Spanish
+                directLine: {
+                    secret: "mOeE5Yxu2vU.cwA.x7w.CdcXM3Su8-8mPFPrFlhbtdg9uyFrlhsrLYN_btw10tM", //params['s'],
+                    webSocket: false
+                }
+            }, document.getElementById('BotChatGoesHere'));
+        }
 
-        BotChat.App({
-            bot: bot,
-            resize: 'detect',
-            sendTyping: true,    // defaults to false. set to true to send 'typing' activities to bot (and other users) when user is typing
-            user: user,
-            locale: 'es-es', // override locale to Spanish
-            directLine: {
-                secret: "mOeE5Yxu2vU.cwA.x7w.CdcXM3Su8-8mPFPrFlhbtdg9uyFrlhsrLYN_btw10tM", //params['s'],
-                webSocket: false
+        function ShowChat() {
+            var x = document.getElementById("BotChatGoesHere");
+            var y = document.getElementById("btnUpecito");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+            } else {
+                x.style.display = "none";
             }
-        }, document.getElementById('BotChatGoesHere'));
-    </script>
+    }    </script>
+
 </div>
